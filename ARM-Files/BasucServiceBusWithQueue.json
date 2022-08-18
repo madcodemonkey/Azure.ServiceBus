@@ -46,22 +46,7 @@
                     "Send"
                 ]
             }
-        },
-        {
-            "type": "Microsoft.ServiceBus/namespaces/networkRuleSets",
-            "apiVersion": "2022-01-01-preview",
-            "name": "[concat(parameters('serviceBusNamespaceName'), '/default')]",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]"
-            ],
-            "properties": {
-                "publicNetworkAccess": "Enabled",
-                "defaultAction": "Allow",
-                "virtualNetworkRules": [],
-                "ipRules": []
-            }
-        },
+        },        
         {
             "type": "Microsoft.ServiceBus/namespaces/queues",
             "apiVersion": "2022-01-01-preview",
@@ -82,7 +67,6 @@
                 "duplicateDetectionHistoryTimeWindow": "PT10M",
                 "maxDeliveryCount": 10,
                 "status": "Active",
-                "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
                 "enablePartitioning": false,
                 "enableExpress": false
             }
