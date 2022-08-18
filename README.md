@@ -1,7 +1,7 @@
 # Azure Service Bus
 
 ## Projects List
-- Service Bus Message Transceiver - This is a console application designed to 
+- Service Bus Message Transceiver (DotNet6ServiceBusMessageTransceiver) - This is a console application designed to 
     - Send Queue message to a service bus
     - Retrieve all the message from a queue on a service bus 
   
