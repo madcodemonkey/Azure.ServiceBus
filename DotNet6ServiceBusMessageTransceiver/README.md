@@ -9,6 +9,6 @@ Currently it will send the Deal.cs class (under Data folder) to the service bus 
 
 
 # Deploy a Standard Service Bus
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-sdk-for-net%2Fmaster%2Fsdk%2Fservicebus%2FMicrosoft.Azure.ServiceBus%2Fassets%2Fazure-deploy-test-dependencies.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmadcodemonkey%2fAzure.ServiceBus%2fmain%2fARM-Files%2fStandardServiceBus.json" target="_blank">
        <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
