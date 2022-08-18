@@ -9,7 +9,7 @@ See the readme.md file in each project for setup instructions.
 
 
 
-# Create a Standard Service Bus
+## Create a **Standard** Service Bus
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmadcodemonkey%2fAzure.ServiceBus%2fmain%2fARM-Files%2fStandardServiceBus.json" target="_blank">
        <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
@@ -17,7 +17,7 @@ See the readme.md file in each project for setup instructions.
 Notes
 - Remember that Topics are only available at the Standard level and above.
 
-# Create a Basic Service bus with a queue
+## Create a **Basic** Service bus with a queue
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmadcodemonkey%2fAzure.ServiceBus%2fmain%2fARM-Files%2fBasicServiceBusWithQueue.json" target="_blank">
        <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
