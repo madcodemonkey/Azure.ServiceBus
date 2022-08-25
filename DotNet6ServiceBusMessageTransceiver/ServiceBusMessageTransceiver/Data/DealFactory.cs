@@ -11,11 +11,12 @@ public class DealFactory
         _random = new Random(DateTime.Now.Millisecond);
     }
 
-    public Deal CreateDeal()
+    public Deal CreateDeal(int order)
     {
         return new Deal()
         {
             Id = Guid.NewGuid(),
+            Order = order,
             Name = $"Name-{_random.Next(1, 50000)}-Dat",
             NumberOfYearsToKeepOnRecord = _random.Next(1, 45),
             CreatedOnDate = DateTime.Now.AddDays(-1 * _random.Next(4, 100)),
@@ -23,9 +24,9 @@ public class DealFactory
         };
     }
 
-    public string CreateSerializedDeal()
+    public string CreateSerializedDeal(int order)
     {
-        var someDeal = CreateDeal();
+        var someDeal = CreateDeal(order);
         return JsonConvert.SerializeObject(someDeal);
     }
 }

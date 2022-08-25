@@ -23,13 +23,13 @@ public class SendDataService
         // create a batch 
         using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
 
-        for (int i = 1; i <= numberOfMessagesToSend; i++)
+        for (int order = 1; order <= numberOfMessagesToSend; order++)
         {
             // try adding a message to the batch
-            if (!messageBatch.TryAddMessage(new ServiceBusMessage(_dealFactory.CreateSerializedDeal())))
+            if (!messageBatch.TryAddMessage(new ServiceBusMessage(_dealFactory.CreateSerializedDeal(order))))
             {
                 // if an exception occurs
-                throw new Exception($"Exception {i} has occurred.");
+                throw new Exception($"Exception {order} has occurred.");
             }
         }
 

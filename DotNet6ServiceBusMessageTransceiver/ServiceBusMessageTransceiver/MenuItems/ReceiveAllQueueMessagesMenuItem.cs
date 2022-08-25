@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace ServiceBusMessageTransceiver;
 
-[ConsoleMenuItem("QueueMessages")]
+[ConsoleMenuItem("Main", 2)]
 public class ReceiveAllQueueMessagesMenuItem : IConsoleMenuItem
 {
     private readonly IConfiguration _configuration;
