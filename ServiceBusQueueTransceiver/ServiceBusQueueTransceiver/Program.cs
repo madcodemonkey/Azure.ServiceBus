@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using ServiceBusMessageTransceiver;
 
-
 try
 {
     var menu = new ConsoleMenu();
@@ -40,4 +39,9 @@ static void AddMyDependencies(IServiceCollection serviceCollection)
     IConfiguration config = builder.Build();
 
     serviceCollection.AddSingleton<IConfiguration>(config);
+    serviceCollection.AddTransient<ISendDataService, SendDataService>();
+    serviceCollection.AddTransient<IReceiveDataService, ReceiveDataService>();
+
+    // Requires Microsoft.Extensions.Options.ConfigurationExtensions NuGet
+    serviceCollection.Configure<ServerBusSettings>(config.GetSection(ServerBusSettings.SectionName));
 }

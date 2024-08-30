@@ -1,24 +1,30 @@
 ﻿using Azure.Messaging.ServiceBus;
+using Microsoft.Extensions.Options;
+ 
 
 namespace ServiceBusMessageTransceiver;
 
-public class SendDataService
+public class SendDataService : ISendDataService
 {
-    private readonly ServiceBusClient _client;
-    private readonly string _queueName;
+    private readonly ServerBusSettings _settings;
     private readonly DealFactory _dealFactory;
 
-    public SendDataService(ServiceBusClient client, string queueName)
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    public SendDataService(IOptions<ServerBusSettings> settings)
     {
-        _client = client;
-        _queueName = queueName;
+        _settings = settings.Value;
         _dealFactory = new DealFactory();
     }
+ 
 
     public async Task WorkAsync(int numberOfMessagesToSend)
     {
-        // Sending data
-        await using var sender = _client.CreateSender(_queueName);
+        await using var client = new ServiceBusClient(_settings.ConnectionString);
+
+            // Sending data
+            await using var sender = client.CreateSender(_settings.QueueName);
 
         // create a batch 
         using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();

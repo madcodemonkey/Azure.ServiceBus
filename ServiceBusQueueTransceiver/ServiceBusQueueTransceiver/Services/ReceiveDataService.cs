@@ -1,21 +1,25 @@
 ﻿using Azure.Messaging.ServiceBus;
+using Microsoft.Extensions.Options;
 
 namespace ServiceBusMessageTransceiver;
 
-public class ReceiveDataService
+public class ReceiveDataService : IReceiveDataService
 {
-    private readonly ServiceBusClient _client;
-    private readonly string _queueName;
-
-    public ReceiveDataService(ServiceBusClient client, string queueName)
+    private readonly ServerBusSettings _settings;
+    
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    public ReceiveDataService(IOptions<ServerBusSettings> settings)
     {
-        _client = client;
-        _queueName = queueName;
+        _settings = settings.Value;
     }
 
     public async Task WorkAsync()
     {
-        await using var processor = _client.CreateProcessor(_queueName, new ServiceBusProcessorOptions());
+        await using ServiceBusClient client = new ServiceBusClient(_settings.ConnectionString);
+        
+        await using var processor = client.CreateProcessor(_settings.QueueName, new ServiceBusProcessorOptions());
 
         // add handler to process messages
         processor.ProcessMessageAsync += MessageHandler;

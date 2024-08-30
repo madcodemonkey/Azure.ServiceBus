@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json;
 
 namespace ServiceBusMessageTransceiver;
 
@@ -27,6 +27,6 @@ public class DealFactory
     public string CreateSerializedDeal(int order)
     {
         var someDeal = CreateDeal(order);
-        return JsonConvert.SerializeObject(someDeal);
+        return JsonSerializer.Serialize(someDeal); ; 
     }
 }
