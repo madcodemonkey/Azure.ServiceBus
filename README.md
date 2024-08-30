@@ -29,5 +29,5 @@ Notes
 - This service bus can only have queues since it is at the Basic level!  If you need Topics, create a Stanard Tier service bus.
 
 ## Branching scheme
-- Main branch: .NET Core 6.0 example
-- [Future] I will create a branch for older .NET items as I retire them.
+- Main branch: .NET 8.0 example
+- [.NET 6.0](https://github.com/madcodemonkey/Azure.ServiceBus/tree/DotNet6)
